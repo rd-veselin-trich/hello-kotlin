@@ -25,7 +25,7 @@ class UserService(private val userRepository: UserRepository, private val passwo
     }
 
     fun createUser(user: NewUser): UserResponse {
-        val userEntity = User(null, user.name, user.email, passwordEncoder.encode(user.password));
+        val userEntity = User(null, user.name, user.email, passwordEncoder.encode(user.password))
         return entityToResponse(userRepository.save(userEntity))
     }
 
