@@ -5,12 +5,6 @@ import jakarta.validation.constraints.Email
 import lombok.*
 
 @Entity
-@Getter
-@Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
-@EqualsAndHashCode
 @Table(name = "app_user")
 data class User(
         @Id

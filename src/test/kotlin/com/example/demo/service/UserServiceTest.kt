@@ -17,7 +17,7 @@ import java.util.*
 class UserServiceTest {
 
     private val userRepository: UserRepository = mockk()
-    private val passwordEncoder: PasswordEncoder = mockk();
+    private val passwordEncoder: PasswordEncoder = mockk()
     private val userService: UserService = UserService(userRepository, passwordEncoder)
 
     @Test
@@ -53,15 +53,15 @@ class UserServiceTest {
     }
 
     private fun buildUser(): User {
-        return User(1L, "Test User", "test@user.com", "securePass");
+        return User(1L, "Test User", "test@user.com", "securePass")
     }
 
     private fun buildUserResponse(): UserResponse {
-        return UserResponse(1L, "Test User", "test@user.com");
+        return UserResponse(1L, "Test User", "test@user.com")
 
     }
 
     private fun buildNewUser(): NewUser {
-        return NewUser("Test User", "test@user.com", "securePass");
+        return NewUser("Test User", "test@user.com", "securePass")
     }
 }
