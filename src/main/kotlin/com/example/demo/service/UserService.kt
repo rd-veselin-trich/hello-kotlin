@@ -5,7 +5,6 @@ import com.example.demo.model.NewUser
 import com.example.demo.model.UserResponse
 import com.example.demo.repo.UserRepository
 import jakarta.annotation.PostConstruct
-import lombok.RequiredArgsConstructor
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.stereotype.Service
 

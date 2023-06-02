@@ -1,10 +1,9 @@
 package com.example.demo.model
 
-import lombok.Getter
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
-import java.util.Collections
+import java.util.*
 
 data class SecurityUser(val name: String, val passwordDb: String, val email: String) : UserDetails {
     override fun getAuthorities(): MutableCollection<out GrantedAuthority> {
