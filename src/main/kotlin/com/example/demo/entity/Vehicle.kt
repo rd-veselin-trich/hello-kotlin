@@ -8,7 +8,7 @@ import jakarta.persistence.ManyToOne
 @Entity
 data class Vehicle(
     @Id
-    val id: Long?,
+    val id: Long? = null,
 
     val plate: String,
 

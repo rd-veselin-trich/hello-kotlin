@@ -1,7 +1,9 @@
 package com.example.demo.controller
 
-import com.example.demo.model.`speed-camera`.SpeedCameraDto
+import com.example.demo.model.speedCamera.SpeedCameraDto
 import com.example.demo.service.SpeedCameraService
+import com.example.demo.service.exceptions.SpeedCameraNotFoundException
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
@@ -10,13 +12,20 @@ class SpeedCameraController(private val speedCameraService: SpeedCameraService) 
 
 
     @PostMapping
-    fun createSpeedCamera(@RequestBody speedCameraDto: SpeedCameraDto): SpeedCameraDto {
-        return speedCameraService.registerSpeedCamera(speedCameraDto)
+    fun createSpeedCamera(@RequestBody speedCameraDto: SpeedCameraDto): ResponseEntity<SpeedCameraDto> {
+        return ResponseEntity.status(201).body(speedCameraService.registerSpeedCamera(speedCameraDto))
     }
 
     @PatchMapping("/{id}")
-    fun moveSpeedCamera(@PathVariable id: Long, @RequestBody speedCameraDto: SpeedCameraDto): SpeedCameraDto {
-        return speedCameraService.moveSpeedCamera(id, speedCameraDto)
+    fun moveSpeedCamera(
+        @PathVariable id: Long,
+        @RequestBody speedCameraDto: SpeedCameraDto
+    ): ResponseEntity<SpeedCameraDto> {
+        return try {
+            ResponseEntity.ok(speedCameraService.moveSpeedCamera(id, speedCameraDto))
+        } catch (e: SpeedCameraNotFoundException) {
+            ResponseEntity.notFound().build()
+        }
     }
 
     @DeleteMapping("/{id}")

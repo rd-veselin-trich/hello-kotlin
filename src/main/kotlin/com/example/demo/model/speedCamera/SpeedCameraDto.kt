@@ -1,4 +1,4 @@
-package com.example.demo.model.`speed-camera`
+package com.example.demo.model.speedCamera
 
 data class SpeedCameraDto(
 

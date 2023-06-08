@@ -17,5 +17,5 @@ data class User(
     var password: String,
 
     @OneToOne
-    var person: Person
+    var person: Person? = null
 )

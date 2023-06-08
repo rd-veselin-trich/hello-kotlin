@@ -1,6 +1,6 @@
 package com.example.demo.model.fine
 
-import com.example.demo.model.`speed-camera`.SpeedCameraDto
+import com.example.demo.model.speedCamera.SpeedCameraDto
 import com.example.demo.model.vehicle.VehicleDto
 
 data class FineDto(

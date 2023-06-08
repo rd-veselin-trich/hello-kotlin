@@ -1,7 +1,7 @@
 package com.example.demo.service.mappers
 
 import com.example.demo.entity.SpeedCamera
-import com.example.demo.model.`speed-camera`.SpeedCameraDto
+import com.example.demo.model.speedCamera.SpeedCameraDto
 import org.mapstruct.Mapper
 import org.springframework.stereotype.Component
 

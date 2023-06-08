@@ -5,7 +5,7 @@ import com.example.demo.entity.SpeedCamera
 import com.example.demo.entity.Vehicle
 import com.example.demo.model.fine.FineDto
 import com.example.demo.model.fine.FineIssueData
-import com.example.demo.model.`speed-camera`.SpeedCameraDto
+import com.example.demo.model.speedCamera.SpeedCameraDto
 import com.example.demo.model.users.PersonDto
 import com.example.demo.model.vehicle.VehicleDto
 import com.example.demo.repo.FineRepository

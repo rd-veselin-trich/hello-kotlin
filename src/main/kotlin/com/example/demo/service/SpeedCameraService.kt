@@ -1,6 +1,6 @@
 package com.example.demo.service
 
-import com.example.demo.model.`speed-camera`.SpeedCameraDto
+import com.example.demo.model.speedCamera.SpeedCameraDto
 import com.example.demo.repo.SpeedCameraRepository
 import com.example.demo.service.exceptions.SpeedCameraNotFoundException
 import com.example.demo.service.mappers.SpeedCameraMapper

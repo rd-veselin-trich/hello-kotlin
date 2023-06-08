@@ -2,10 +2,11 @@ package com.example.demo.controller
 
 import com.example.demo.model.fine.FineDto
 import com.example.demo.model.fine.FineIssueData
-import com.example.demo.model.`speed-camera`.SpeedCameraDto
+import com.example.demo.model.speedCamera.SpeedCameraDto
 import com.example.demo.model.users.PersonDto
 import com.example.demo.model.vehicle.VehicleDto
 import com.example.demo.service.FineService
+import com.example.demo.service.exceptions.SpeedCameraNotFoundException
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.jupiter.api.BeforeEach
@@ -79,5 +80,18 @@ class FineControllerTest {
                     }""".trimMargin()
                 )
             )
+    }
+
+    @Test
+
+    fun createFine_ShouldReturnNotFound(){
+        every { fineService.issueFine(any()) } throws SpeedCameraNotFoundException()
+
+        mockMvc.perform(
+            post("/api/v1/fines")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content("""{"detectedSpeed": 78.0, "cameraId": 1, "detectedVehiclePlate": "plate id"}""")
+        )
+            .andExpect(status().isNotFound)
     }
 }
