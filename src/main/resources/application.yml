@@ -8,3 +8,9 @@ spring:
     url: jdbc:postgresql://localhost:5432/testdb
     username: postgres
     password: postgres
+  liquibase:
+    enabled: false
+    change-log: 'classpath:db/liquibase-changelog.yml'
+    user: postgres
+    password: postgres
+    url: jdbc:postgresql://localhost:5432/testdb

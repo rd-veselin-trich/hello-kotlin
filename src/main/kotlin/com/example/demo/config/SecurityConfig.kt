@@ -20,7 +20,8 @@ class SecurityConfig {
             .authorizeHttpRequests() { authorizeHttpRequests ->
                 authorizeHttpRequests
                     .anyRequest()
-                    .authenticated()
+                    //.authenticated()
+                    .permitAll()
             }.build()
     }
 

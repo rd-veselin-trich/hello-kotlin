@@ -1,0 +1,223 @@
+databaseChangeLog:
+- changeSet:
+    id: 1686122665535-1
+    author: A1CF452 (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: app_user_pkey
+            name: id
+            startWith: 2
+            type: BIGINT
+        - column:
+            name: email
+            type: VARCHAR(255)
+        - column:
+            name: password
+            type: VARCHAR(255)
+        - column:
+            name: person_id
+            type: VARCHAR(255)
+        tableName: app_user
+- changeSet:
+    id: 1686122665535-2
+    author: A1CF452 (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: fine_pkey
+            name: id
+            type: BIGINT
+        - column:
+            name: amount_to_pay
+            type: numeric(38, 2)
+        - column:
+            constraints:
+              nullable: false
+            name: detected_speed
+            type: FLOAT4
+        - column:
+            constraints:
+              nullable: false
+            name: in_city
+            type: BOOLEAN
+        - column:
+            name: detected_vehicle_id
+            type: BIGINT
+        - column:
+            name: issuer_id
+            type: BIGINT
+        tableName: fine
+- changeSet:
+    id: 1686122665535-3
+    author: A1CF452 (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: speed_camera_pkey
+            name: id
+            startWith: 2
+            type: BIGINT
+        - column:
+            constraints:
+              nullable: false
+            name: latitude
+            type: FLOAT4
+        - column:
+            constraints:
+              nullable: false
+            name: longitude
+            type: FLOAT4
+        - column:
+            name: manufacturer
+            type: VARCHAR(255)
+        - column:
+            constraints:
+              nullable: false
+            name: speed_limit
+            type: INTEGER
+        tableName: speed_camera
+- changeSet:
+    id: 1686122665535-4
+    author: A1CF452 (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: vehicle_pkey
+            name: id
+            type: BIGINT
+        - column:
+            name: plate
+            type: VARCHAR(255)
+        - column:
+            name: owner_id
+            type: VARCHAR(255)
+        tableName: vehicle
+- changeSet:
+    id: 1686122665535-5
+    author: A1CF452 (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: email
+        constraintName: uk_1j9d9a06i600gd43uu3km82jw
+        tableName: app_user
+- changeSet:
+    id: 1686122665535-6
+    author: A1CF452 (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: person_id
+        constraintName: uk_k9h9tjf2nydx59c0bav6cwule
+        tableName: app_user
+- changeSet:
+    id: 1686122665535-7
+    author: A1CF452 (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: detected_vehicle_id
+        constraintName: uk_mrxw4vjexloc8uk1ekkjngn2o
+        tableName: fine
+- changeSet:
+    id: 1686122665535-8
+    author: A1CF452 (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: person_pkey
+            name: id
+            type: VARCHAR(255)
+        - column:
+            name: address
+            type: VARCHAR(255)
+        - column:
+            name: first_name
+            type: VARCHAR(255)
+        - column:
+            name: last_name
+            type: VARCHAR(255)
+        tableName: person
+- changeSet:
+    id: 1686122665535-9
+    author: A1CF452 (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: issuer_id
+        baseTableName: fine
+        constraintName: fk26go9bj8kr5x7oemioypkoirw
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: speed_camera
+        validate: true
+- changeSet:
+    id: 1686122665535-10
+    author: A1CF452 (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: person_id
+        baseTableName: app_user
+        constraintName: fk30lk0wcq1g873b17ktycjboxe
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: person
+        validate: true
+- changeSet:
+    id: 1686122665535-11
+    author: A1CF452 (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: detected_vehicle_id
+        baseTableName: fine
+        constraintName: fkf0n94iutqwh2s4koo6iv07d3r
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: vehicle
+        validate: true
+- changeSet:
+    id: 1686122665535-12
+    author: A1CF452 (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: owner_id
+        baseTableName: vehicle
+        constraintName: fkgck5ua0fktjugglbra6n3do2h
+        deferrable: false
+        initiallyDeferred: false
+        onDelete: NO ACTION
+        onUpdate: NO ACTION
+        referencedColumnNames: id
+        referencedTableName: person
+        validate: true
+

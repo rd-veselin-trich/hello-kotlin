@@ -1,11 +1,11 @@
-package com.example.demo.model
+package com.example.demo.model.users
 
 import org.springframework.security.core.GrantedAuthority
 import org.springframework.security.core.authority.SimpleGrantedAuthority
 import org.springframework.security.core.userdetails.UserDetails
 import java.util.*
 
-data class SecurityUser(val name: String, val passwordDb: String, val email: String) : UserDetails {
+data class SecurityUser(val passwordDb: String, val email: String) : UserDetails {
     override fun getAuthorities(): MutableCollection<out GrantedAuthority> {
         return Collections.singleton(SimpleGrantedAuthority("ADMIN"))
     }

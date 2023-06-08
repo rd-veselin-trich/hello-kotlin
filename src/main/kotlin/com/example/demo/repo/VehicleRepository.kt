@@ -1,12 +1,12 @@
 package com.example.demo.repo
 
-import com.example.demo.entity.User
+import com.example.demo.entity.Vehicle
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 import java.util.*
 
 @Repository
-interface UserRepository : JpaRepository<User, Long> {
+interface VehicleRepository : JpaRepository<Vehicle, Long> {
 
-    fun findByEmail(email: String): Optional<User>
+    fun findByPlate(plate: String): Optional<Vehicle>
 }
