@@ -16,17 +16,18 @@ import org.springframework.web.bind.annotation.*
 class UserController(private val userService: UserService) {
 
     @GetMapping
-    @Operation(summary = "Sets a price for a chosen car", description = "Returns 202 if successful")
+    @Operation(summary = "Get all users")
     @ApiResponse(responseCode = "200", description = "Successful")
     fun getAllUsers(): ResponseEntity<List<UserResponse>> {
         return ResponseEntity.ok(userService.getUsers())
     }
 
     @PostMapping
+    @Operation(summary = "Create a user")
     @ApiResponses(
         value = [
-            ApiResponse(description = "Created", responseCode = "201"),
-            ApiResponse(description = "Bad Request", responseCode = "400")
+            ApiResponse(responseCode = "201", description = "Created"),
+            ApiResponse(responseCode = "400", description = "Bad Request")
         ]
     )
     fun createUser(@RequestBody() user: NewUser): ResponseEntity<UserResponse> {

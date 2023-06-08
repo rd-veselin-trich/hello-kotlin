@@ -33,7 +33,12 @@ class VehicleServiceTest {
         vehicleMapper = mockk()
         personService = mockk()
         personMapper = mockk()
-        vehicleService = VehicleService(vehicleRepository, vehicleMapper, personService, personMapper)
+        vehicleService = VehicleService(
+            vehicleRepository = vehicleRepository,
+            personService = personService,
+            personMapper = personMapper,
+            vehicleMapper = vehicleMapper
+        )
     }
 
     @Test

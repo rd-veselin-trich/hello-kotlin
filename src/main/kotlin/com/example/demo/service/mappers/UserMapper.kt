@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component
 @Component
 interface UserMapper {
 
-    //@Mapping(target = "id", ignore = true)
     fun personToPersonDto(user: User): NewUser
 
     fun entityToResponse(user: User): UserResponse

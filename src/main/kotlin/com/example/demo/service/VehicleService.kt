@@ -12,9 +12,9 @@ import org.springframework.stereotype.Service
 @Service
 class VehicleService(
     private val vehicleRepository: VehicleRepository,
-    private val vehicleMapper: VehicleMapper,
     private val personService: PersonService,
-    private val personMapper: PersonMapper
+    private val personMapper: PersonMapper,
+    private val vehicleMapper: VehicleMapper
 ) {
 
     fun registerVehicle(newVehicle: NewVehicle): VehicleDto {
